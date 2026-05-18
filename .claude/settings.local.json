@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\KIRILL\\\\WebstormProjects\\\\Attendance\" -Recurse -Force -ErrorAction SilentlyContinue | Where-Object { $_.FullName -notmatch 'node_modules|\\\\.git' } | Select-Object FullName, Length | Format-Table -AutoSize)",
+      "Bash(npx tsc *)"
+    ]
+  }
+}

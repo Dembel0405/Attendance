@@ -1,0 +1,8 @@
+node_modules/
+server/node_modules/
+client/node_modules/
+attendance.db
+server/uploads/
+client/dist/
+.env
+*.local
