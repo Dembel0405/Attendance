@@ -3,7 +3,7 @@ import { Outlet, NavLink, useNavigate, Link } from 'react-router-dom';
 import {
   Squares2X2Icon, UserGroupIcon, AcademicCapIcon,
   CalendarDaysIcon, ChartBarIcon, ArrowUpTrayIcon,
-  ArrowRightStartOnRectangleIcon, UserCircleIcon,
+  ArrowRightStartOnRectangleIcon, UserCircleIcon, BookOpenIcon,
 } from '@heroicons/react/24/outline';
 
 const nav = [
@@ -11,6 +11,7 @@ const nav = [
   { to: '/groups',     label: 'Группы',        Icon: UserGroupIcon },
   { to: '/students',   label: 'Студенты',      Icon: AcademicCapIcon },
   { to: '/attendance', label: 'Посещаемость',  Icon: CalendarDaysIcon },
+  { to: '/journal',    label: 'Журнал',        Icon: BookOpenIcon },
   { to: '/analytics',  label: 'Аналитика',     Icon: ChartBarIcon },
   { to: '/import',     label: 'Импорт',        Icon: ArrowUpTrayIcon },
 ];

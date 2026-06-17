@@ -8,6 +8,8 @@ import AttendancePage from './pages/AttendancePage';
 import AnalyticsPage from './pages/AnalyticsPage';
 import ImportPage from './pages/ImportPage';
 import StudentPage from './pages/StudentPage';
+import GroupPage from './pages/GroupPage';
+import JournalPage from './pages/JournalPage';
 import ProfilePage from './pages/ProfilePage';
 
 function RequireAuth({ children }: { children: React.ReactNode }) {
@@ -24,8 +26,11 @@ export default function App() {
         <Route path="/" element={<RequireAuth><Layout /></RequireAuth>}>
           <Route index           element={<DashboardPage />} />
           <Route path="groups"   element={<GroupsPage />} />
+          <Route path="groups/:id" element={<GroupPage />} />
           <Route path="students" element={<StudentsPage />} />
           <Route path="attendance" element={<AttendancePage />} />
+          <Route path="journal"      element={<JournalPage />} />
+          <Route path="journal/:date" element={<JournalPage />} />
           <Route path="analytics"  element={<AnalyticsPage />} />
           <Route path="import"     element={<ImportPage />} />
           <Route path="students/:id" element={<StudentPage />} />

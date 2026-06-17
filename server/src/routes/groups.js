@@ -25,6 +25,18 @@ router.post('/', (req, res) => {
   }
 });
 
+router.get('/:id', (req, res) => {
+  const group = db.prepare(`
+    SELECT g.*, COUNT(s.id) as student_count
+    FROM groups g
+    LEFT JOIN students s ON g.id = s.group_id
+    WHERE g.id = ?
+    GROUP BY g.id
+  `).get(req.params.id);
+  if (!group) return res.status(404).json({ error: 'Группа не найдена' });
+  res.json(group);
+});
+
 router.delete('/:id', (req, res) => {
   const result = db.prepare('DELETE FROM groups WHERE id = ?').run(req.params.id);
   if (!result.changes) return res.status(404).json({ error: 'Группа не найдена' });

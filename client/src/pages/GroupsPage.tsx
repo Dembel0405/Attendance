@@ -1,5 +1,6 @@
 import { useState, useEffect, FormEvent } from 'react';
-import { PlusIcon, TrashIcon, UserGroupIcon } from '@heroicons/react/24/outline';
+import { Link } from 'react-router-dom';
+import { PlusIcon, TrashIcon, UserGroupIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import { groupsAPI } from '../api';
 import type { Group } from '../types';
 
@@ -97,13 +98,27 @@ export default function GroupsPage() {
               </thead>
               <tbody>
                 {groups.map(g => (
-                  <tr key={g.id}>
-                    <td className="font-medium text-slate-800">{g.name}</td>
+                  <tr key={g.id} className="hover:bg-slate-50 transition-colors">
+                    <td>
+                      <Link
+                        to={`/groups/${g.id}`}
+                        className="font-medium text-blue-600 hover:text-blue-800 hover:underline flex items-center gap-1"
+                      >
+                        {g.name}
+                        <ChevronRightIcon className="w-3.5 h-3.5 opacity-50" />
+                      </Link>
+                    </td>
                     <td>
                       <span className="badge bg-blue-100 text-blue-800">{g.student_count}</span>
                     </td>
                     <td className="text-slate-500">{new Date(g.created_at).toLocaleDateString('ru-RU')}</td>
-                    <td className="text-right">
+                    <td className="text-right flex items-center justify-end gap-2">
+                      <Link
+                        to={`/groups/${g.id}`}
+                        className="btn btn-secondary py-1.5 px-3 text-xs"
+                      >
+                        Открыть
+                      </Link>
                       <button
                         onClick={() => handleDelete(g.id)}
                         className="btn btn-danger py-1.5 px-3 text-xs"

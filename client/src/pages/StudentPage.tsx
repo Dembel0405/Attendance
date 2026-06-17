@@ -149,9 +149,9 @@ export default function StudentPage() {
           <div className="flex-1">
             <h1 className="text-2xl font-bold text-slate-800">{analytics.name}</h1>
             <div className="flex flex-wrap items-center gap-2 mt-1.5">
-              {analytics.group_name
+              {analytics.group_name && analytics.group_id
                 ? <Link
-                    to="/groups"
+                    to={`/groups/${analytics.group_id}`}
                     className="badge bg-indigo-100 text-indigo-800 hover:bg-indigo-200 transition-colors"
                   >
                     {analytics.group_name}

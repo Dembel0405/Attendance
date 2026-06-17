@@ -43,6 +43,7 @@ export const authAPI = {
 
 export const groupsAPI = {
   getAll:  ()           => api.get<Group[]>('/groups'),
+  getById: (id: number) => api.get<Group>(`/groups/${id}`),
   create:  (name: string) => api.post<Group>('/groups', { name }),
   remove:  (id: number)   => api.delete(`/groups/${id}`),
 };

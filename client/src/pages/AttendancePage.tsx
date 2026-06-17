@@ -188,8 +188,13 @@ export default function AttendancePage() {
               <tbody>
                 {records.map(r => (
                   <tr key={r.id}>
-                    <td className="text-slate-600 font-mono text-xs">
-                      {new Date(r.date + 'T00:00:00').toLocaleDateString('ru-RU', { day: '2-digit', month: '2-digit', year: 'numeric' })}
+                    <td>
+                      <Link
+                        to={`/journal/${r.date}`}
+                        className="font-mono text-xs text-blue-600 hover:text-blue-800 hover:underline"
+                      >
+                        {new Date(r.date + 'T00:00:00').toLocaleDateString('ru-RU', { day: '2-digit', month: '2-digit', year: 'numeric' })}
+                      </Link>
                     </td>
                     <td>
                       <Link
